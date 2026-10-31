@@ -1,0 +1,8 @@
+.learning-paths-dept {
+  margin-bottom: var(--space-8);
+}
+
+.learning-paths-dept-title {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-4);
+}

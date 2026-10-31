@@ -1,0 +1,18 @@
+.my-learning-group {
+  margin-bottom: var(--space-7);
+}
+
+.my-learning-group-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.my-learning-group-head h2 {
+  font-size: var(--text-md);
+}
+
+.my-learning-group-head h2 a:hover {
+  color: var(--color-accent);
+}

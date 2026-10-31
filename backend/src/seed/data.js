@@ -1,0 +1,156 @@
+const departments = [
+  {
+    _id: 'it',
+    code: 'IT',
+    name: 'Information Technology',
+    shortName: 'IT / CS',
+    description:
+      'Web development, programming fundamentals, data structures, databases, and full-stack engineering.',
+    accentVar: '--color-dept-it',
+    skillCategories: ['HTML & CSS', 'JavaScript', 'React', 'Node.js', 'Databases'],
+    categories: [
+      { id: 'web-development', name: 'Web Development', moduleCount: 5, problemCount: 46, description: 'HTML, CSS, JavaScript, React, and Node.js — the full front-to-back web stack.' },
+      { id: 'programming-fundamentals', name: 'Programming Fundamentals', moduleCount: 2, problemCount: 20, description: 'Variables, control flow, functions, and core problem-solving patterns.' },
+      { id: 'data-structures', name: 'Data Structures', moduleCount: 0, problemCount: 18, description: 'Arrays, linked lists, trees, graphs, and the operations built on top of them.' },
+      { id: 'database-systems', name: 'Database Systems', moduleCount: 0, problemCount: 14, description: 'Relational modeling, SQL, and an introduction to NoSQL data stores.' },
+      { id: 'backend-development', name: 'Backend Development', moduleCount: 0, problemCount: 16, description: 'REST APIs, middleware, authentication concepts, and server architecture.' },
+      { id: 'full-stack-development', name: 'Full Stack Development', moduleCount: 0, problemCount: 8, description: 'Connecting a React frontend to an Express/MongoDB backend end to end.' },
+      { id: 'software-engineering', name: 'Software Engineering', moduleCount: 0, problemCount: 6, description: 'Version control, testing basics, and working with a codebase over time.' },
+    ],
+  },
+  {
+    _id: 'ece',
+    code: 'ECE',
+    name: 'Electronics and Communication Engineering',
+    shortName: 'ECE',
+    description: 'Digital electronics, VLSI, Verilog HDL, embedded systems, and communication systems.',
+    accentVar: '--color-dept-ece',
+    skillCategories: ['Digital Logic', 'VLSI', 'Verilog', 'Embedded Systems', 'IoT'],
+    categories: [
+      { id: 'digital-electronics', name: 'Digital Electronics', moduleCount: 0, problemCount: 20, description: 'Logic gates, boolean algebra, combinational and sequential circuits.' },
+      { id: 'vlsi', name: 'VLSI', moduleCount: 2, problemCount: 16, description: 'CMOS fundamentals, flip-flops, counters, registers, and RTL design.' },
+      { id: 'verilog-hdl', name: 'Verilog HDL', moduleCount: 0, problemCount: 14, description: 'Modules, testbenches, and simulation for hardware description.' },
+      { id: 'embedded-systems', name: 'Embedded Systems', moduleCount: 0, problemCount: 12, description: 'Microcontroller programming concepts, GPIO, and timers.' },
+      { id: 'microcontrollers', name: 'Microcontrollers', moduleCount: 0, problemCount: 8, description: 'Architecture and programming of common microcontroller families.' },
+      { id: 'communication-systems', name: 'Communication Systems', moduleCount: 0, problemCount: 8, description: 'Modulation, transmission, and the basics of signal communication.' },
+      { id: 'signals-and-systems', name: 'Signals and Systems', moduleCount: 0, problemCount: 8, description: 'Signal representation, transforms, and system response.' },
+      { id: 'iot', name: 'IoT', moduleCount: 0, problemCount: 6, description: 'Sensor-data workflows, MQTT concepts, and device communication.' },
+      { id: 'semiconductor-fundamentals', name: 'Semiconductor Fundamentals', moduleCount: 0, problemCount: 4, description: 'Diodes, transistors, and the physics behind digital logic.' },
+    ],
+  },
+  {
+    _id: 'eee',
+    code: 'EEE',
+    name: 'Electrical and Electronics Engineering',
+    shortName: 'EEE',
+    description: 'Circuit analysis, electrical machines, power systems, control systems, and power electronics.',
+    accentVar: '--color-dept-eee',
+    skillCategories: ['Circuit Analysis', 'Power Systems', 'Control Systems', 'Power Electronics'],
+    categories: [
+      { id: 'circuit-analysis', name: 'Circuit Analysis', moduleCount: 2, problemCount: 18, description: "Ohm's law, Kirchhoff's laws, and DC/AC circuit analysis techniques." },
+      { id: 'digital-electronics-eee', name: 'Digital Electronics', moduleCount: 0, problemCount: 12, description: 'Boolean logic and digital circuit fundamentals for electrical systems.' },
+      { id: 'electrical-machines', name: 'Electrical Machines', moduleCount: 0, problemCount: 14, description: 'Transformers, motors, and generator fundamentals with worked calculations.' },
+      { id: 'power-systems', name: 'Power Systems', moduleCount: 0, problemCount: 12, description: 'Generation, transmission, and distribution of electrical power.' },
+      { id: 'control-systems', name: 'Control Systems', moduleCount: 0, problemCount: 10, description: 'Feedback, stability, and system response fundamentals.' },
+      { id: 'power-electronics', name: 'Power Electronics', moduleCount: 0, problemCount: 6, description: 'Converters, rectifiers, and switching device fundamentals.' },
+      { id: 'microcontrollers-eee', name: 'Microcontrollers', moduleCount: 0, problemCount: 2, description: 'Microcontroller basics applied to electrical control systems.' },
+    ],
+  },
+];
+
+const modules = [
+  {
+    _id: 'html-structure', departmentId: 'it', categoryId: 'web-development', subject: 'HTML', order: 1,
+    title: 'HTML Structure & Semantic Elements', difficulty: 'easy',
+    description: 'How a page is structured, and why semantic tags matter for accessibility and SEO.',
+    theory: [
+      { heading: 'Document structure', body: 'Every HTML document starts with a doctype, followed by <html>, <head>, and <body>. The <head> holds metadata; the <body> holds everything visible.' },
+      { heading: 'Semantic elements', body: 'Tags like <header>, <nav>, <main>, <article>, <section>, and <footer> describe the role of content, not just its appearance.' },
+    ],
+    examples: [{ title: 'A semantic page skeleton', code: '<body>\n  <header>...</header>\n  <nav>...</nav>\n  <main>\n    <article>...</article>\n  </main>\n  <footer>...</footer>\n</body>' }],
+  },
+  {
+    _id: 'css-flexbox', departmentId: 'it', categoryId: 'web-development', subject: 'CSS', order: 2,
+    title: 'Flexbox Layout', difficulty: 'medium',
+    description: 'One-dimensional layout with the flexbox model: main axis, cross axis, and alignment.',
+    theory: [
+      { heading: 'The flex container', body: 'Setting display: flex on a parent turns its direct children into flex items laid out along a main axis.' },
+      { heading: 'Alignment properties', body: 'justify-content aligns items along the main axis; align-items aligns them along the cross axis.' },
+    ],
+    examples: [{ title: 'Centering with flexbox', code: '.container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}' }],
+  },
+  {
+    _id: 'js-arrays', departmentId: 'it', categoryId: 'web-development', subject: 'JavaScript', order: 3,
+    title: 'Arrays & Iteration', difficulty: 'medium',
+    description: 'Creating, transforming, and iterating over arrays with map, filter, and reduce.',
+    theory: [{ heading: 'Array methods', body: 'map() transforms each element into a new array; filter() keeps elements that pass a test; reduce() folds the array into a single value.' }],
+    examples: [{ title: 'Doubling values', code: 'const doubled = [1, 2, 3].map((n) => n * 2);\n// [2, 4, 6]' }],
+  },
+  {
+    _id: 'react-hooks', departmentId: 'it', categoryId: 'web-development', subject: 'React', order: 4,
+    title: 'Hooks & State', difficulty: 'medium',
+    description: 'Managing component state with useState and side effects with useEffect.',
+    theory: [
+      { heading: 'useState', body: 'useState returns a value and a setter function. Calling the setter schedules a re-render with the new value.' },
+      { heading: 'useEffect', body: 'useEffect runs after render, and can re-run when its dependency array changes.' },
+    ],
+    examples: [{ title: 'A counter', code: 'const [count, setCount] = useState(0);\n<button onClick={() => setCount(count + 1)}>{count}</button>' }],
+  },
+  {
+    _id: 'node-express-basics', departmentId: 'it', categoryId: 'web-development', subject: 'Node.js', order: 5,
+    title: 'Express Fundamentals', difficulty: 'hard',
+    description: 'Routing, middleware, and request/response handling with Express.',
+    theory: [
+      { heading: 'Routes', body: 'An Express route matches an HTTP method and path to a handler function that receives req and res.' },
+      { heading: 'Middleware', body: 'Middleware functions run in sequence before a route handler.' },
+    ],
+    examples: [{ title: 'A minimal route', code: "app.get('/api/health', (req, res) => {\n  res.json({ status: 'ok' });\n});" }],
+  },
+  {
+    _id: 'variables-and-types', departmentId: 'it', categoryId: 'programming-fundamentals', subject: 'Fundamentals', order: 1,
+    title: 'Variables & Data Types', difficulty: 'easy',
+    description: 'Declaring variables and the primitive types you will use constantly.',
+    theory: [{ heading: 'Primitive types', body: 'Numbers, strings, booleans, null, and undefined are the core primitive types in JavaScript.' }],
+    examples: [{ title: 'Declaring variables', code: "let count = 0;\nconst name = 'Engi';\nconst isActive = true;" }],
+  },
+  {
+    _id: 'functions-basics', departmentId: 'it', categoryId: 'programming-fundamentals', subject: 'Fundamentals', order: 2,
+    title: 'Functions & Scope', difficulty: 'easy',
+    description: 'Defining reusable functions and understanding where variables are visible.',
+    theory: [{ heading: 'Function declarations vs. expressions', body: 'A function declaration is hoisted; a function expression is not.' }],
+    examples: [{ title: 'A simple function', code: 'function add(a, b) {\n  return a + b;\n}' }],
+  },
+  {
+    _id: 'cmos-fundamentals', departmentId: 'ece', categoryId: 'vlsi', subject: 'VLSI', order: 1,
+    title: 'CMOS Fundamentals', difficulty: 'medium', simulation: 'logic-gate',
+    description: 'How complementary NMOS/PMOS pairs form the basis of digital logic gates.',
+    theory: [{ heading: 'Pull-up and pull-down networks', body: 'A CMOS gate pairs a PMOS pull-up network with an NMOS pull-down network.' }],
+    examples: [{ title: 'CMOS inverter behavior', code: 'Input = 0 -> PMOS ON, NMOS OFF -> Output = 1\nInput = 1 -> PMOS OFF, NMOS ON -> Output = 0' }],
+  },
+  {
+    _id: 'flip-flops', departmentId: 'ece', categoryId: 'vlsi', subject: 'VLSI', order: 2,
+    title: 'Flip-Flops', difficulty: 'medium', simulation: 'flip-flop-waveform',
+    description: 'Edge-triggered storage elements: D, JK, and T flip-flops.',
+    theory: [{ heading: 'The D flip-flop', body: 'A D flip-flop captures the value on its D input at the moment of a clock edge.' }],
+    examples: [{ title: 'D flip-flop in Verilog', code: 'always @(posedge clk)\n  q <= d;' }],
+  },
+  {
+    _id: 'ohms-law', departmentId: 'eee', categoryId: 'circuit-analysis', subject: 'Circuit Analysis', order: 1,
+    title: "Ohm's Law", difficulty: 'easy',
+    description: 'The relationship between voltage, current, and resistance.',
+    theory: [{ heading: 'V = IR', body: 'Voltage equals current multiplied by resistance.' }],
+    examples: [{ title: 'Finding current', code: 'V = 12V, R = 4ohm\nI = V / R = 3A' }],
+  },
+  {
+    _id: 'kirchhoffs-laws', departmentId: 'eee', categoryId: 'circuit-analysis', subject: 'Circuit Analysis', order: 2,
+    title: "Kirchhoff's Laws", difficulty: 'medium',
+    description: "Kirchhoff's current and voltage laws for analyzing circuit networks.",
+    theory: [
+      { heading: 'KCL', body: 'The sum of currents entering a node equals the sum of currents leaving it.' },
+      { heading: 'KVL', body: 'The sum of voltage drops around any closed loop equals zero.' },
+    ],
+    examples: [{ title: 'Applying KCL', code: 'I_in = I_out1 + I_out2' }],
+  },
+];
+
+module.exports = { departments, modules };

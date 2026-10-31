@@ -1,0 +1,61 @@
+.filter-bar {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.filter-search {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-bar .select {
+  width: auto;
+  min-width: 160px;
+}
+
+.problem-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.problem-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.problem-card-status {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.problem-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.problem-card-desc {
+  font-size: var(--text-sm);
+  margin: var(--space-1) 0 var(--space-3);
+}
+
+.problem-card-meta {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .filter-bar {
+    flex-direction: column;
+  }
+  .filter-bar .select {
+    width: 100%;
+  }
+  .problem-card {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,133 @@
+.problem-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.problem-detail-header h1 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-3);
+}
+
+.problem-detail-badges {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.problem-section {
+  max-width: 72ch;
+  margin-bottom: var(--space-6);
+}
+
+.problem-section h2 {
+  font-size: var(--text-md);
+  margin-bottom: var(--space-3);
+}
+
+.problem-section p {
+  color: var(--color-text);
+  line-height: var(--leading-relaxed);
+}
+
+.problem-io-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  max-width: 72ch;
+}
+
+.constraint-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.example-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.example-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.example-label {
+  display: block;
+  font-size: var(--text-xs);
+  margin-bottom: var(--space-1);
+}
+
+.example-explanation {
+  grid-column: 1 / -1;
+  font-size: var(--text-sm);
+}
+
+.hint-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.related-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-width: 72ch;
+}
+
+.related-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.related-item:hover {
+  border-color: var(--color-accent);
+}
+
+.problem-nav-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+  margin-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.problem-nav-panel-arrows,
+.problem-nav-panel-toggles {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.is-active-toggle {
+  color: var(--color-accent);
+}
+
+@media (max-width: 700px) {
+  .problem-detail-header {
+    flex-direction: column;
+  }
+  .problem-io-grid, .example-block {
+    grid-template-columns: 1fr;
+  }
+}

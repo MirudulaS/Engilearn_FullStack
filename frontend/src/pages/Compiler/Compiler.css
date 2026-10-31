@@ -1,0 +1,228 @@
+.compiler-page {
+  display: grid;
+  grid-template-columns: 340px 1fr 360px;
+  gap: 1px;
+  background: var(--color-border);
+  height: calc(100vh - var(--navbar-height));
+}
+
+.compiler-pane {
+  background: var(--color-bg);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.compiler-pane--left {
+  padding: var(--space-5);
+}
+
+.compiler-pane--center {
+  padding: 0;
+}
+
+.compiler-pane--right {
+  padding: 0;
+}
+
+/* ---- Problem panel (left) ---- */
+.problem-panel-title-link h2 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-3);
+}
+
+.problem-panel-section {
+  margin-top: var(--space-5);
+}
+
+.problem-panel-section h3 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-2);
+}
+
+.problem-panel-section p {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+/* ---- Toolbar ---- */
+.compiler-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.language-selector {
+  width: auto;
+  min-width: 140px;
+  height: 34px;
+}
+
+.compiler-toolbar-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* ---- Editor ---- */
+.code-editor {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  background: #17191B;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.code-editor-gutter {
+  padding: var(--space-3) var(--space-2);
+  text-align: right;
+  color: #5b5f62;
+  user-select: none;
+  border-right: 1px solid #2a2d2f;
+}
+
+.code-editor-textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  color: #E3E1DA;
+  padding: var(--space-3) var(--space-4);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  white-space: pre;
+  overflow: auto;
+}
+
+.compiler-input {
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.compiler-input textarea {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+/* ---- Right pane tabs ---- */
+.compiler-tabs {
+  padding: 0 var(--space-4);
+  flex-shrink: 0;
+}
+
+.compiler-tab-content {
+  padding: var(--space-4);
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ---- Output / console panel ---- */
+.output-panel-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.output-panel-time {
+  font-size: var(--text-xs);
+}
+
+.output-panel-console {
+  background: #17191B;
+  color: #E3E1DA;
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: var(--leading-relaxed);
+  white-space: pre-wrap;
+  min-height: 120px;
+}
+
+/* ---- Test case panel ---- */
+.testcase-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.testcase-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.testcase-row-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: var(--text-sm);
+}
+
+.testcase-row-io {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+/* ---- Submission status ---- */
+.submission-status--empty {
+  font-size: var(--text-sm);
+}
+
+.submission-status-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.submission-status-verdict {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.submission-status--success .submission-status-head { color: var(--color-success); }
+.submission-status--danger .submission-status-head { color: var(--color-danger); }
+.submission-status--warning .submission-status-head { color: var(--color-warning); }
+
+.submission-status-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.submission-status-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 1100px) {
+  .compiler-page {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    height: auto;
+  }
+  .compiler-pane--center {
+    min-height: 480px;
+  }
+}
